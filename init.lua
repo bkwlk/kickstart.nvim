@@ -726,6 +726,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         templ = { 'templ' },
+
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -990,6 +991,10 @@ vim.keymap.set({ 'n', 'v' }, 'x', [["_x]])
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
 vim.keymap.set('x', '<leader>p', [["_dP]])
+vim.keymap.set('n', '<leader>qq', vim.cmd.YAMLView)
+vim.keymap.set('n', '<leader>;;', vim.cmd.YAMLTelescope)
+
+-- My custom configs
 
 local format_sync_grp = vim.api.nvim_create_augroup('GoFormat', {})
 vim.api.nvim_create_autocmd('BufWritePre', {
