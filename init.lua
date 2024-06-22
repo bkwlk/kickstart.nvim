@@ -670,6 +670,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         templ = { 'templ' },
+
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
@@ -853,7 +854,24 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'templ' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'vim',
+        'vimdoc',
+        'templ',
+        'go',
+        'gomod',
+        'gowork',
+        'gosum',
+        'gotmpl',
+        'yaml',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -937,6 +955,10 @@ vim.keymap.set({ 'n', 'v' }, 'x', [["_x]])
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
 vim.keymap.set('x', '<leader>p', [["_dP]])
+vim.keymap.set('n', '<leader>qq', vim.cmd.YAMLView)
+vim.keymap.set('n', '<leader>;;', vim.cmd.YAMLTelescope)
+
+-- My custom configs
 
 local format_sync_grp = vim.api.nvim_create_augroup('GoFormat', {})
 vim.api.nvim_create_autocmd('BufWritePre', {
